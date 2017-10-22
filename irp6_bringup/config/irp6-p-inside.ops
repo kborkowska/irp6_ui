@@ -236,6 +236,8 @@ Irp6ptfgJ2M.configure()
 loadComponent("Irp6pmSplineTrajectoryGeneratorJoint", "InternalSpaceSplineTrajectoryGenerator")
 Irp6pmSplineTrajectoryGeneratorJoint.loadService("rosparam");
 Irp6pmSplineTrajectoryGeneratorJoint.rosparam.getAll();
+Irp6pmSplineTrajectoryGeneratorJoint.configure()
+
 
 
 
@@ -244,7 +246,7 @@ Irp6pmSplineTrajectoryGeneratorJoint.rosparam.getAll();
 loadComponent("Irp6ptfgSplineTrajectoryGeneratorJoint", "InternalSpaceSplineTrajectoryGenerator")
 Irp6ptfgSplineTrajectoryGeneratorJoint.loadService("rosparam");
 Irp6ptfgSplineTrajectoryGeneratorJoint.rosparam.getAll();
-
+Irp6ptfgSplineTrajectoryGeneratorJoint.configure()
 
 
 // Irp6pmSplineTrajectoryGeneratorMotor
@@ -252,7 +254,7 @@ Irp6ptfgSplineTrajectoryGeneratorJoint.rosparam.getAll();
 loadComponent("Irp6pmSplineTrajectoryGeneratorMotor", "InternalSpaceSplineTrajectoryGenerator")
 Irp6pmSplineTrajectoryGeneratorMotor.loadService("rosparam");
 Irp6pmSplineTrajectoryGeneratorMotor.rosparam.getAll();
-
+Irp6pmSplineTrajectoryGeneratorMotor.configure()
 
 
 
@@ -261,22 +263,23 @@ Irp6pmSplineTrajectoryGeneratorMotor.rosparam.getAll();
 loadComponent("Irp6ptfgSplineTrajectoryGeneratorMotor", "InternalSpaceSplineTrajectoryGenerator")
 Irp6ptfgSplineTrajectoryGeneratorMotor.loadService("rosparam");
 Irp6ptfgSplineTrajectoryGeneratorMotor.rosparam.getAll();
-
+Irp6ptfgSplineTrajectoryGeneratorMotor.configure()
 
 
 
 // Irp6pmPoseInt
 
 loadComponent("Irp6pmPoseInt", "CartesianInterpolator")
+Irp6pmPoseInt.loadService("rosparam");
+Irp6pmPoseInt.rosparam.getAll();
 Irp6pmPoseInt.configure();
 
 // Irp6pmToolInt
 
 loadComponent("Irp6pmToolInt", "CartesianInterpolator")
-Irp6pmToolInt.configure();
 Irp6pmToolInt.loadService("rosparam");
 Irp6pmToolInt.rosparam.getAll();
-
+Irp6pmToolInt.configure();
 
 // ATI6284
 
@@ -623,17 +626,6 @@ connect("Irp6pmJ2M.MotorPosition", "IRp6pmLimitDetector.InputPort", ConnPolicy()
 
 connect("Irp6ptfgIM2RM.RadianMotorPosition","Irp6ptfgM2J.MotorPosition", ConnPolicy())
 connect("Irp6ptfgJ2M.MotorPosition", "IRp6ptfgLimitDetector.InputPort", ConnPolicy())
-
-
-
-// CONFIGURE SOME COMPONENTS
-
-
-
-Irp6ptfgSplineTrajectoryGeneratorJoint.configure()
-Irp6pmSplineTrajectoryGeneratorJoint.configure()
-Irp6ptfgSplineTrajectoryGeneratorMotor.configure()
-Irp6pmSplineTrajectoryGeneratorMotor.configure()
 
 
 

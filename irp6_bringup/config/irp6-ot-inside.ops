@@ -301,20 +301,21 @@ Irp6ottfgJ2M.configure()
 
 
 
+
+
 // Irp6otmSplineTrajectoryGeneratorJoint
 
 loadComponent("Irp6otmSplineTrajectoryGeneratorJoint", "InternalSpaceSplineTrajectoryGenerator")
-
 Irp6otmSplineTrajectoryGeneratorJoint.loadService("rosparam");
 Irp6otmSplineTrajectoryGeneratorJoint.rosparam.getAll();
-
+Irp6otmSplineTrajectoryGeneratorJoint.configure()
 
 // Irp6ottfgSplineTrajectoryGeneratorJoint
 
 loadComponent("Irp6ottfgSplineTrajectoryGeneratorJoint", "InternalSpaceSplineTrajectoryGenerator")
 Irp6ottfgSplineTrajectoryGeneratorJoint.loadService("rosparam");
 Irp6ottfgSplineTrajectoryGeneratorJoint.rosparam.getAll();
-
+Irp6ottfgSplineTrajectoryGeneratorJoint.configure()
 
 
 
@@ -323,7 +324,7 @@ Irp6ottfgSplineTrajectoryGeneratorJoint.rosparam.getAll();
 loadComponent("Irp6otmSplineTrajectoryGeneratorMotor", "InternalSpaceSplineTrajectoryGenerator")
 Irp6otmSplineTrajectoryGeneratorMotor.loadService("rosparam");
 Irp6otmSplineTrajectoryGeneratorMotor.rosparam.getAll();
-
+Irp6otmSplineTrajectoryGeneratorMotor.configure()
 
 
 // Irp6ottfgSplineTrajectoryGeneratorMotor
@@ -331,6 +332,7 @@ Irp6otmSplineTrajectoryGeneratorMotor.rosparam.getAll();
 loadComponent("Irp6ottfgSplineTrajectoryGeneratorMotor", "InternalSpaceSplineTrajectoryGenerator")
 Irp6ottfgSplineTrajectoryGeneratorMotor.loadService("rosparam");
 Irp6ottfgSplineTrajectoryGeneratorMotor.rosparam.getAll();
+Irp6ottfgSplineTrajectoryGeneratorMotor.configure()
 
 
 
@@ -338,15 +340,16 @@ Irp6ottfgSplineTrajectoryGeneratorMotor.rosparam.getAll();
 // Irp6otmPoseInt
 
 loadComponent("Irp6otmPoseInt", "CartesianInterpolator")
+Irp6otmPoseInt.loadService("rosparam");
+Irp6otmPoseInt.rosparam.getAll();
 Irp6otmPoseInt.configure();
 
 // Irp6otmToolInt
 
 loadComponent("Irp6otmToolInt", "CartesianInterpolator")
-Irp6otmToolInt.configure();
 Irp6otmToolInt.loadService("rosparam");
 Irp6otmToolInt.rosparam.getAll();
-
+Irp6otmToolInt.configure();
 
 // ATI3084
 
@@ -710,15 +713,6 @@ connect("Irp6otmPortDoubleAggregate_hw_desired.InputPort_0","Irp6otmPortDoubleSp
 connect("Irp6ottfgPortDoubleAggregate_hw_p.InputPort_0",Irp6ot_hi_component_mw()+".MotorPosition_irp6ottfg", ConnPolicy())
 connect("Irp6otmPortDoubleAggregate_hw_curr.InputPort_6",Irp6ot_hi_component_mw()+".MotorCurrent_irp6otm_6", ConnPolicy())
 
-
-
-// CONFIGURE SOME COMPONENTS
-
-
-Irp6otmSplineTrajectoryGeneratorJoint.configure()
-Irp6ottfgSplineTrajectoryGeneratorJoint.configure()
-Irp6otmSplineTrajectoryGeneratorMotor.configure()
-Irp6ottfgSplineTrajectoryGeneratorMotor.configure()
 
 
 

@@ -98,12 +98,14 @@ loadComponent("ConveyorJ2M","ConveyorJ2M")
 ConveyorJ2M.configure()
 
 
+
+
 // ConveyorSplineTrajectoryGeneratorJoint
 
 loadComponent("ConveyorSplineTrajectoryGeneratorJoint", "InternalSpaceSplineTrajectoryGenerator")
 ConveyorSplineTrajectoryGeneratorJoint.loadService("rosparam");
 ConveyorSplineTrajectoryGeneratorJoint.rosparam.getAll();
-
+ConveyorSplineTrajectoryGeneratorJoint.configure()
 
 
 // ConveyorSplineTrajectoryGeneratorMotor
@@ -111,7 +113,7 @@ ConveyorSplineTrajectoryGeneratorJoint.rosparam.getAll();
 loadComponent("ConveyorSplineTrajectoryGeneratorMotor", "InternalSpaceSplineTrajectoryGenerator")
 ConveyorSplineTrajectoryGeneratorMotor.loadService("rosparam");
 ConveyorSplineTrajectoryGeneratorMotor.rosparam.getAll();
-
+ConveyorSplineTrajectoryGeneratorMotor.configure()
 
 
 
@@ -212,12 +214,6 @@ connect("ConveyorSplineTrajectoryGeneratorMotor.JointPositionCommand_OUTPORT","C
 connect("ConveyorM2J.JointPosition", "ConveyorJntPub.JointPosition", ConnPolicy());
 connect("ConveyorM2J.JointPosition", "ConveyorJntPub.JointVelocity", ConnPolicy());
 connect("ConveyorM2J.JointPosition", "ConveyorJntPub.JointEffort", ConnPolicy());
-
-
-// CONFIGURE
-
-ConveyorSplineTrajectoryGeneratorJoint.configure()
-ConveyorSplineTrajectoryGeneratorMotor.configure()
 
 
 //

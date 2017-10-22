@@ -39,6 +39,7 @@
         port_labels: [conveyor]
       ConveyorSplineTrajectoryGeneratorJoint:
         number_of_joints: 1
+        ns_interval: 2000000
       ConveyorSplineTrajectoryActionJoint:
         joint_names: [joint1]
         lower_limits: [-1000.0]
@@ -49,6 +50,7 @@
         enc_res: [4000.0]
       ConveyorSplineTrajectoryGeneratorMotor:
         number_of_joints: 1
+        ns_interval: 2000000
       ConveyorSplineTrajectoryActionMotor:
         joint_names: [joint1]
       ConveyorLimitDetector:

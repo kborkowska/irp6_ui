@@ -104,18 +104,21 @@
         joint_names: [Irp6ottfgMotor1]
       Irp6otmSplineTrajectoryGeneratorJoint:
         number_of_joints: 7
+        ns_interval: 2000000
       Irp6otmSplineTrajectoryActionJoint:
         joint_names: [joint1, joint2, joint3, joint4, joint5, joint6, joint7]
         lower_limits: [-0.4, -2.4, -2.2689280276, -0.6108652382, -1.5707963268, -10.0, -2.88]
         upper_limits: [1.21, 2.9670597284, -0.872664626, 0.6981317008, 1.6057029118, 10.0, 2.93]
       Irp6ottfgSplineTrajectoryGeneratorJoint:
         number_of_joints: 1
+        ns_interval: 2000000
       Irp6ottfgSplineTrajectoryActionJoint:
         joint_names: [joint1]
         lower_limits: [0.053]
         upper_limits: [0.09]
       Irp6otmSplineTrajectoryGeneratorMotor:
         number_of_joints: 7
+        ns_interval: 2000000
       Irp6otmMotorParameters:
         lower_limits: [-1000.0, -470.0, -110.0, -80.0, -70.0, -80.0, -1000.0]
         upper_limits: [2000.0, 450.0, 100.0, 100.0, 380.0, 490.0, 3000.0]
@@ -130,6 +133,7 @@
         pos_inc_limit_active: [true, true, true, true, true, true, true]
       Irp6ottfgSplineTrajectoryGeneratorMotor:
         number_of_joints: 1
+        ns_interval: 2000000
       Irp6ottfgMotorParameters:
         lower_limits: [-1800.0]
         upper_limits: [1200.0]
@@ -261,8 +265,11 @@
         number_of_ports: 1
       Irp6otmPortDoubleAggregate_hw_curr:
         number_of_ports: 7
+      Irp6otmPoseInt:
+        ns_interval: 2000000
       Irp6otmToolInt:
         activate_pose_init: true
+        ns_interval: 2000000
         init_setpoint:
           orientation:
             w: 1.0 
@@ -272,7 +279,7 @@
           position:
             x: 0.0
             y: 0.0
-            z: 0.25      
+            z: 0.25  
       ATI3084:
         force_limits: [65.0, 65.0, 130.0, 5.0, 5.0, 5.0]
         slow_buffer_size: 100
