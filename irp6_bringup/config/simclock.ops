@@ -1,0 +1,9 @@
+loadComponent("SC","SimClock")
+setActivity("SC", 0.001, 10, ORO_SCHED_RT);
+SC.loadService("rosparam")
+SC.rosparam.getAll()
+SC.rosparam.getParam("/simclock_ns_interval", "simclock_ns_interval")
+SC.rosparam.getParam("/simclock_ratio", "simclock_ratio")
+SC.configure()
+stream("SC.ROS_TIME", ros.comm.topic("/clock"))
+SC.start()

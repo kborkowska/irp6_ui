@@ -12,7 +12,6 @@ Irp6pHwModel.loadService("rosparam")
 Irp6pHwModel.rosparam.getAll()
 Irp6pHwModel.configure()
 
-
 runScript( ros.find("irp6_bringup") + "/config/irp6-p-inside.ops")
 
 Irp6pHwModel.start()

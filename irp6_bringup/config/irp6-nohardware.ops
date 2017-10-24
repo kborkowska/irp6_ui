@@ -13,6 +13,7 @@ ros.import("ec_hw_model")
 ros.import("irp6_supervisor")
 ros.import("optoforce_component");
 
+runScript( ros.find("irp6_bringup") + "/config/simclock.ops")
 runScript( ros.find("irp6_bringup") + "/config/irp6-ot-nohardware-inside.ops")
 
 runScript( ros.find("irp6_bringup") + "/config/irp6-p-nohardware-inside.ops")
