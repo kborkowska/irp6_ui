@@ -24,6 +24,6 @@ scripts/irp6pm_simple_trajectory.py
 scripts/irp6pm_synchro.py
 scripts/update_monitor.py
 scripts/IRPOS/irpos_test.py
+scripts/run_common_simclock.sh
+scripts/run_common_realclock.sh
 DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
-
-install(PROGRAMS scripts/run_common.sh DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
