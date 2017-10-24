@@ -10,6 +10,6 @@ ros.import("force_control")
 ros.import("irp6_force_sensor")
 
 
-runScript( ros.find("irp6_bringup") + "/config/simclock.ops")
+// runScript( ros.find("irp6_bringup") + "/config/simclock.ops")
 runScript( ros.find("irp6_bringup") + "/config/irp6-p-nohardware-inside.ops")
 

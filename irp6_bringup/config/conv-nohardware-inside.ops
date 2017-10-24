@@ -8,6 +8,7 @@ loadComponent("ConvHwModel","HwModel")
 ConvHwModel.loadService("rosparam")
 ConvHwModel.rosparam.getAll()
 ConvHwModel.configure()
+stream("ConvHwModel.ROS_TIME", ros.comm.topic("/clock"))
 
 runScript( ros.find("irp6_bringup") + "/config/conv-inside.ops")
 

@@ -29,6 +29,7 @@
           synchro_step_fine: 0.007
           current_mode: 1
       ConvHwModel:
+        robot_code: 3
         iteration_per_step: 1
         step_per_second: 500
         input_current_units_per_amper: [1000.0]

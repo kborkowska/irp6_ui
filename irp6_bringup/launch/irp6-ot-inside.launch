@@ -84,6 +84,7 @@
         enc_res: [4000.0, 4000.0, 4000.0, 4000.0, 4000.0, 4000.0]
         services_names: [irp6otm_0, irp6otm_1, irp6otm_2, irp6otm_3, irp6otm_4, irp6otm_5]
       Irp6otHwModel_MW:
+        robot_code: 1
         iteration_per_step: 1
         step_per_second: 500
         input_current_units_per_amper: [1000.0, 1000.0]

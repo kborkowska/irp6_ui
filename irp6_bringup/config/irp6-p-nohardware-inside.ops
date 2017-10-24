@@ -11,6 +11,7 @@ loadComponent("Irp6pHwModel","HwModel")
 Irp6pHwModel.loadService("rosparam")
 Irp6pHwModel.rosparam.getAll()
 Irp6pHwModel.configure()
+stream("Irp6pHwModel.ROS_TIME", ros.comm.topic("/clock"))
 
 runScript( ros.find("irp6_bringup") + "/config/irp6-p-inside.ops")
 

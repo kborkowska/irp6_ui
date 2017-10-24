@@ -97,6 +97,7 @@
           synchro_step_fine: 0.2
           current_mode: 1
       Irp6pHwModel:
+        robot_code: 2
         iteration_per_step: 1
         step_per_second: 500
         input_current_units_per_amper: [1000.0, 1000.0, 1000.0, 1000.0, 1000.0, 1000.0, 1000.0]

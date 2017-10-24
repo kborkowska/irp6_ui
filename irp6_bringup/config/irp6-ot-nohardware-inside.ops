@@ -15,6 +15,7 @@ loadComponent("Irp6otHwModel_MW","HwModel")
 Irp6otHwModel_MW.loadService("rosparam")
 Irp6otHwModel_MW.rosparam.getAll()
 Irp6otHwModel_MW.configure()
+stream("Irp6otHwModel_MW.ROS_TIME", ros.comm.topic("/clock"))
 
 
 string Irp6ot_hi_component_ec() { return string("Irp6otHwModel_EC"); }
