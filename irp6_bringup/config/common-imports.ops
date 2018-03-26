@@ -25,6 +25,7 @@ ros.import("internal_space_spline_trajectory_generator")
 ros.import("internal_space_spline_trajectory_action_limits")
 ros.import("internal_space_spline_trajectory_generator_limits")
 ros.import("controller_common")
+ros.import("rtt_trapezoidal_trajectory_msgs")
 ros.import("hw_model")
 // ros.import("simclock")
 

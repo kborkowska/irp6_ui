@@ -596,7 +596,7 @@ connect("Irp6pmSplineTrajectoryGeneratorJoint.JointPositionCommand_OUTPORT","Irp
 connect("Irp6pmSplineTrajectoryActionJointLimits.trajectoryPtr","Irp6pmSplineTrajectoryGeneratorJointLimits.trajectoryPtr_INPORT", ConnPolicy())
 connect("Irp6pmM2J.JointPosition","Irp6pmSplineTrajectoryActionJointLimits.JointPosition", ConnPolicy())
 connect("Irp6pmSplineTrajectoryGeneratorJointLimits.JointPositionCommand_OUTPORT","Irp6pmSplineTrajectoryActionJointLimits.JointPositionCommand", ConnPolicy())
-connect("Irp6pmSplineTrajectoryGeneratorJointLimits.IsTrajectoryFeasible_OUTPORT","Irp6pmSplineTrajectoryActionJointLimits.IsTrajectoryFeasible", ConnPolicy())
+connect("Irp6pmSplineTrajectoryGeneratorJointLimits.GeneratorResult_OUTPORT","Irp6pmSplineTrajectoryActionJointLimits.GeneratorResult", ConnPolicy())
 
 
 connect("Irp6pmSplineTrajectoryActionMotor.trajectoryPtr","Irp6pmSplineTrajectoryGeneratorMotor.trajectoryPtr_INPORT", ConnPolicy())
