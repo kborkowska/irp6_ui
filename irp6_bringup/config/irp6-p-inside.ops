@@ -239,12 +239,12 @@ Irp6pmSplineTrajectoryGeneratorJoint.rosparam.getAll();
 Irp6pmSplineTrajectoryGeneratorJoint.configure()
 
 
-// Irp6pmSplineTrajectoryGeneratorJointLimits
+// Irp6pmTrapezoidTrajectoryGeneratorJoint
 
-loadComponent("Irp6pmSplineTrajectoryGeneratorJointLimits", "InternalSpaceSplineTrajectoryGeneratorLimits")
-Irp6pmSplineTrajectoryGeneratorJointLimits.loadService("rosparam");
-Irp6pmSplineTrajectoryGeneratorJointLimits.rosparam.getAll();
-Irp6pmSplineTrajectoryGeneratorJointLimits.configure()
+loadComponent("Irp6pmTrapezoidTrajectoryGeneratorJoint", "InternalSpaceTrapezoidTrajectoryGenerator")
+Irp6pmTrapezoidTrajectoryGeneratorJoint.loadService("rosparam");
+Irp6pmTrapezoidTrajectoryGeneratorJoint.rosparam.getAll();
+Irp6pmTrapezoidTrajectoryGeneratorJoint.configure()
 
 
 // Irp6ptfgSplineTrajectoryGeneratorJoint
@@ -324,16 +324,16 @@ Irp6pmSplineTrajectoryActionJoint.configure()
 
 
 //
-// Irp6pmSplineTrajectoryActionJointLimits
+// Irp6pmTrapezoidTrajectoryActionJoint
 // 
 
-loadComponent("Irp6pmSplineTrajectoryActionJointLimits", "InternalSpaceSplineTrajectoryActionLimits")
-setActivity("Irp6pmSplineTrajectoryActionJointLimits",0.01 ,2 ,ORO_SCHED_RT)
-Irp6pmSplineTrajectoryActionJointLimits.loadService("rosparam");
-Irp6pmSplineTrajectoryActionJointLimits.rosparam.getAll();
-Irp6pmSplineTrajectoryActionJointLimits.loadService("actionlib")
-Irp6pmSplineTrajectoryActionJointLimits.actionlib.connect("/irp6p_arm/spline_trajectory_action_joint_limits")
-Irp6pmSplineTrajectoryActionJointLimits.configure()
+loadComponent("Irp6pmTrapezoidTrajectoryActionJoint", "InternalSpaceTrapezoidTrajectoryAction")
+setActivity("Irp6pmTrapezoidTrajectoryActionJoint",0.01 ,2 ,ORO_SCHED_RT)
+Irp6pmTrapezoidTrajectoryActionJoint.loadService("rosparam");
+Irp6pmTrapezoidTrajectoryActionJoint.rosparam.getAll();
+Irp6pmTrapezoidTrajectoryActionJoint.loadService("actionlib")
+Irp6pmTrapezoidTrajectoryActionJoint.actionlib.connect("/irp6p_arm/trapezoid_trajectory_action_joint")
+Irp6pmTrapezoidTrajectoryActionJoint.configure()
 
 
 
@@ -496,8 +496,8 @@ connect("Irp6pmSplineTrajectoryGeneratorJoint.GeneratorActive_OUTPORT","Irp6pSup
 connect("Irp6ptfgSplineTrajectoryGeneratorJoint.IsSynchronised_INPORT",Irp6p_hi_component()+".IsSynchronised", ConnPolicy())
 connect("Irp6ptfgSplineTrajectoryGeneratorJoint.GeneratorActive_OUTPORT","Irp6pSupervisor.GeneratorActiveIn", ConnPolicy())
 
-connect("Irp6pmSplineTrajectoryGeneratorJointLimits.IsSynchronised_INPORT",Irp6p_hi_component()+".IsSynchronised", ConnPolicy())
-connect("Irp6pmSplineTrajectoryGeneratorJointLimits.GeneratorActive_OUTPORT","Irp6pSupervisor.GeneratorActiveIn", ConnPolicy())
+connect("Irp6pmTrapezoidTrajectoryGeneratorJoint.IsSynchronised_INPORT",Irp6p_hi_component()+".IsSynchronised", ConnPolicy())
+connect("Irp6pmTrapezoidTrajectoryGeneratorJoint.GeneratorActive_OUTPORT","Irp6pSupervisor.GeneratorActiveIn", ConnPolicy())
 
 
 connect("Irp6pDiag.SynchroStateIn","Irp6pSupervisor.IsSynchronisedOut", ConnPolicy())
@@ -593,10 +593,10 @@ connect("Irp6pmM2J.JointPosition","Irp6pmSplineTrajectoryActionJoint.JointPositi
 connect("Irp6pmSplineTrajectoryGeneratorJoint.JointPositionCommand_OUTPORT","Irp6pmSplineTrajectoryActionJoint.JointPositionCommand", ConnPolicy())
 
 
-connect("Irp6pmSplineTrajectoryActionJointLimits.trajectoryPtr","Irp6pmSplineTrajectoryGeneratorJointLimits.trajectoryPtr_INPORT", ConnPolicy())
-connect("Irp6pmM2J.JointPosition","Irp6pmSplineTrajectoryActionJointLimits.JointPosition", ConnPolicy())
-connect("Irp6pmSplineTrajectoryGeneratorJointLimits.JointPositionCommand_OUTPORT","Irp6pmSplineTrajectoryActionJointLimits.JointPositionCommand", ConnPolicy())
-connect("Irp6pmSplineTrajectoryGeneratorJointLimits.GeneratorResult_OUTPORT","Irp6pmSplineTrajectoryActionJointLimits.GeneratorResult", ConnPolicy())
+connect("Irp6pmTrapezoidTrajectoryActionJoint.trajectoryPtr","Irp6pmTrapezoidTrajectoryGeneratorJoint.trajectoryPtr_INPORT", ConnPolicy())
+connect("Irp6pmM2J.JointPosition","Irp6pmTrapezoidTrajectoryActionJoint.JointPosition", ConnPolicy())
+connect("Irp6pmTrapezoidTrajectoryGeneratorJoint.JointPositionCommand_OUTPORT","Irp6pmTrapezoidTrajectoryActionJoint.JointPositionCommand", ConnPolicy())
+connect("Irp6pmTrapezoidTrajectoryGeneratorJoint.GeneratorResult_OUTPORT","Irp6pmTrapezoidTrajectoryActionJoint.GeneratorResult", ConnPolicy())
 
 
 connect("Irp6pmSplineTrajectoryActionMotor.trajectoryPtr","Irp6pmSplineTrajectoryGeneratorMotor.trajectoryPtr_INPORT", ConnPolicy())
@@ -614,8 +614,8 @@ connect("Irp6pmM2J.JointPosition","Irp6pmSplineTrajectoryGeneratorJoint.JointPos
 connect("Irp6pmSplineTrajectoryGeneratorJoint.JointPositionCommand_OUTPORT","Irp6pmJ2M.JointPosition", ConnPolicy())
 
 
-connect("Irp6pmM2J.JointPosition","Irp6pmSplineTrajectoryGeneratorJointLimits.JointPosition_INPORT", ConnPolicy())
-connect("Irp6pmSplineTrajectoryGeneratorJointLimits.JointPositionCommand_OUTPORT","Irp6pmJ2M.JointPosition", ConnPolicy())
+connect("Irp6pmM2J.JointPosition","Irp6pmTrapezoidTrajectoryGeneratorJoint.JointPosition_INPORT", ConnPolicy())
+connect("Irp6pmTrapezoidTrajectoryGeneratorJoint.JointPositionCommand_OUTPORT","Irp6pmJ2M.JointPosition", ConnPolicy())
 
 
 connect("Irp6pmJ2M.JointPosition","Irp6pmInverseKinematic.OutputJointPosition", ConnPolicy())
@@ -755,7 +755,7 @@ addPeer("Irp6pScheme", "Irp6pmForceTransformation");
 addPeer("Irp6pScheme", "Irp6pmForceControlLaw");
 
 addPeer("Irp6pScheme", "Irp6pmSplineTrajectoryGeneratorJoint");
-addPeer("Irp6pScheme", "Irp6pmSplineTrajectoryGeneratorJointLimits");
+addPeer("Irp6pScheme", "Irp6pmTrapezoidTrajectoryGeneratorJoint");
 addPeer("Irp6pScheme", "Irp6ptfgSplineTrajectoryGeneratorJoint");
 addPeer("Irp6pScheme", "Irp6pmSplineTrajectoryGeneratorMotor");
 addPeer("Irp6pScheme", "Irp6ptfgSplineTrajectoryGeneratorMotor");
@@ -811,7 +811,7 @@ Irp6pScheme.addBlock("Irp6pmForceControlLaw");
 
 Irp6pScheme.addBlock("Irp6pmForceTransformation");
 Irp6pScheme.addBlock("Irp6pmSplineTrajectoryGeneratorJoint");
-Irp6pScheme.addBlock("Irp6pmSplineTrajectoryGeneratorJointLimits");
+Irp6pScheme.addBlock("Irp6pmTrapezoidTrajectoryGeneratorJoint");
 Irp6pScheme.addBlock("Irp6ptfgSplineTrajectoryGeneratorJoint");
 Irp6pScheme.addBlock("Irp6pmSplineTrajectoryGeneratorMotor");
 Irp6pScheme.addBlock("Irp6ptfgSplineTrajectoryGeneratorMotor");
@@ -838,7 +838,7 @@ Irp6pScheme.latchConnections(Irp6p_hi_component(), "Irp6pmPortDoubleAggregate_hw
 Irp6pScheme.latchConnections(Irp6p_hi_component(), "Irp6ptfgPortDoubleAggregate_hw_p", true);
 Irp6pScheme.latchConnections(Irp6p_hi_component(), "Irp6pmForceControlLaw", true);
 Irp6pScheme.latchConnections(Irp6p_hi_component(), "Irp6pmSplineTrajectoryGeneratorJoint", true);
-Irp6pScheme.latchConnections(Irp6p_hi_component(), "Irp6pmSplineTrajectoryGeneratorJointLimits", true);
+Irp6pScheme.latchConnections(Irp6p_hi_component(), "Irp6pmTrapezoidTrajectoryGeneratorJoint", true);
 Irp6pScheme.latchConnections(Irp6p_hi_component(), "Irp6ptfgSplineTrajectoryGeneratorJoint", true);
 Irp6pScheme.latchConnections(Irp6p_hi_component(), "Irp6pmSplineTrajectoryGeneratorMotor", true);
 Irp6pScheme.latchConnections(Irp6p_hi_component(), "Irp6ptfgSplineTrajectoryGeneratorMotor", true);
@@ -897,7 +897,7 @@ Irp6ptfgMotPub.start()
 Irp6pWrenchPublisher.start()
 Irp6pTfPublisher.start()
 Irp6pmSplineTrajectoryActionJoint.start()
-Irp6pmSplineTrajectoryActionJointLimits.start()
+Irp6pmTrapezoidTrajectoryActionJoint.start()
 Irp6ptfgSplineTrajectoryActionJoint.start()
 Irp6pmSplineTrajectoryActionMotor.start()
 Irp6ptfgSplineTrajectoryActionMotor.start()
